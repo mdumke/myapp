@@ -10,5 +10,10 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong><%= pluralize(@user.groups.count, "Group") %>: </strong>
+  <%= @user.groups.map(&:group_name).join(', ') %>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
