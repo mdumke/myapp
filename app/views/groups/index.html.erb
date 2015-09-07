@@ -1,0 +1,19 @@
+<h1>Listing Groups</h1>
+
+<%- @groups.each do |group| %>
+
+  <p>
+    <strong>Group:</strong>
+    <%= group.group_name %>
+  </p>
+
+  <p>
+    <strong><%= pluralize(group.users.count, 'Member') %>:</strong>
+    <%= group.users.map { |u| link_to "#{u.name}", user_path(u) }.join(', ').html_safe %>
+  </p>
+
+  <br>
+
+<%- end %>
+
+<%= link_to 'Users', users_path %>
